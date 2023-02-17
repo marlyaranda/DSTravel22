@@ -1,0 +1,16 @@
+{% extends 'ejemplo_dos/base.html' %}
+
+{% block contenido %}
+    <h1>Asunto: {{object.nombre}}</h1>
+    <h2>De: {{object.email}}</h2>
+    <h2>Mensaje: {{object.texto}}</h2>
+    <h2>Fecha: {{object.enviado_el}}</h2>
+    <!--<div>
+         <img height="512" src="{{object.imagen.url}}">
+    </div> -->
+    <div>
+
+        <a class="btn btn-primary" href="{% url 'ejemplo-dos-mensajes-listar' %}">Atras</a>
+    </div>
+
+{% endblock %}

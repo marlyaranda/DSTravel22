@@ -26,7 +26,8 @@ from ejemplo.views import (index, saludar_a, sumar,
 from ejemplo_dos.views import (index, PostDetalle, PostListar, 
                                PostCrear, PostBorrar, PostActualizar,
                                UserSignUp, UserLogin, UserLogout, 
-                               AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle )
+                               AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, 
+                               VueloCrear, VueloDetalle, VueloListar, VueloActualizar, VueloBorrar, VueloComprar, CompraListar )
 from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
@@ -46,20 +47,30 @@ urlpatterns = [
     path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view()),
     path('panel-familia/<int:pk>/detalle', FamiliarDetalle.as_view()),
     path('success_updated_message/',TemplateView.as_view(template_name="ejemplo/success_updated_message.html")),
-    path('ejemplo-dos/', index, name="ejemplo-dos-index"),
-    path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
-    path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
-    path('ejemplo-dos/crear/', staff_member_required(PostCrear.as_view()), name="ejemplo-dos-crear"),
-    path('ejemplo-dos/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="ejemplo-dos-borrar"),
-    path('ejemplo-dos/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="ejemplo-dos-actualizar"),
-    path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
-    path('ejemplo-dos/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
-    path('ejemplo-dos/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
-    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar"),
-    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="ejemplo-dos-users-actualizar"),
-    path('ejemplo-dos/mensajes/crear/', MensajeCrear.as_view(), name="ejemplo-dos-mensajes-crear"),
-    path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="ejemplo-dos-mensajes-detalle"),
-    path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name="ejemplo-dos-mensajes-listar"),
+    path('dstravel/', index, name="ejemplo-dos-index"),
+    path('', index, name="ejemplo-dos-index"),
+    path('dstravel/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
+    path('dstravel/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
+    path('dstravel/crear/', staff_member_required(PostCrear.as_view()), name="ejemplo-dos-crear"),
+    path('dstravel/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="ejemplo-dos-borrar"),
+    path('dstravel/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="ejemplo-dos-actualizar"),
+    path('dstravel/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
+    path('dstravel/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
+    path('dstravel/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
+    path('dstravel/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar"),
+    path('dstravel/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="ejemplo-dos-users-actualizar"),
+    path('dstravel/mensajes/crear/', MensajeCrear.as_view(), name="ejemplo-dos-mensajes-crear"),
+    path('dstravel/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="ejemplo-dos-mensajes-detalle"),
+    path('dstravel/mensajes/listar/', MensajeListar.as_view(), name="ejemplo-dos-mensajes-listar"),
+    path('dstravel/vuelos/crear/', staff_member_required(VueloCrear.as_view()), name="vuelocrear"),
+    path('dstravel/vuelos/<int:pk>/detalle/', VueloDetalle.as_view(), name="vuelodetalle"),
+    path('dstravel/vuelos/listar/', VueloListar.as_view(), name="vuelolistar"),
+    path('dstravel/vuelos/<int:pk>/borrar/', staff_member_required(VueloBorrar.as_view()), name="vueloborrar"),
+    path('dstravel/vuelos/<int:pk>/actualizar/', staff_member_required(VueloActualizar.as_view()), name="vueloactualizar"),
+    path('dstravel/vuelos/<int:pk>/comprar/', staff_member_required(VueloComprar.as_view()), name="vuelocomprar"),
+    path('dstravel/comprar/listar/', staff_member_required(CompraListar.as_view()), name="compralistar"),
+
+
 ]
 
 

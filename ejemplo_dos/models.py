@@ -18,3 +18,21 @@ class Mensaje(models.Model):
     nombre = models.CharField(max_length=100)
     texto = models.TextField(max_length=3000)
     enviado_el = models.DateField(auto_now_add=True)
+
+class Vuelo(models.Model):
+   fechaPartida =  models.DateField()
+   fechaArrivo =  models.DateField()
+   destinoIda = models.CharField(max_length=100) #origen
+   destinoVuelta = models.CharField(max_length=100) #destino
+   precio = models.FloatField()
+   horaArrivo = models.CharField(max_length=100) #hora llegada
+   horaPartida = models.CharField(max_length=100) #hora salida
+
+class Comprar(models.Model):
+   fechaPartida =  models.DateField()
+   fechaArrivo =  models.DateField()
+   destinoIda = models.CharField(max_length=100) #origen
+   destinoVuelta = models.CharField(max_length=100) #destino
+   precio = models.FloatField()
+   horaArrivo = models.CharField(max_length=100) #hora llegada
+   horaPartida = models.CharField(max_length=100) #hora salida

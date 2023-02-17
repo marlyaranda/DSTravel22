@@ -2,46 +2,63 @@
 
 {% block contenido %}
 <div class="container">
+    <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Bienvenidos a DS Travel!</h1>
+                    <p class="lead mb-0">Nuevos vuelos disponibles</p>
+                </div>
+            </div>
+        </header>
     <div class="row">
         <!-- Blog entries-->
         <div class="col-lg-8">
-            {% if posts %}
+            {% if vuelos %}
                 <!-- Featured blog post-->
                 <div class="card mb-4">
-                    {% if posts.0 %}
-                    <a href="#!"><img class="card-img-top" src="{{posts.0.imagen.url}}" alt="..." /></a>
+                    {% if vuelos.0 %}
+<!--                    <a href="#!"><img class="card-img-top" src="{{vuelos.0.imagen.url}}" alt="..." /></a>-->
                     <div class="card-body">
-                        <div class="small text-muted">{{posts.0.publicado_el}}</div>
-                        <h2 class="card-title">{{posts.0.titulo}}</h2>
-                        <p class="card-text">{{posts.0.sub_titulo}}</p>
-                        <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.0.id %}">Leer Mas →</a>
+                        <div class="small text-muted">Precio: {{vuelos.0.precio}} $ARS</div>
+                        <h2 class="card-title">Ida: {{vuelos.0.destinoIda}}</h2>
+                        <h2 class="card-title">Vuelta: {{vuelos.0.destinoVuelta}}</h2>
+                        <p class="card-text">Fecha de partida: {{vuelos.0.fechaPartida}}</p>
+                        <p class="card-text">Fecha de Arrivo: {{vuelos.0.fechaArrivo}}</p>
+
+                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.0.id %}">Leer Mas →</a>
                     </div>
                     {% endif %}
                 </div>
-                <!-- Nested row for non-featured blog posts-->
+                <!-- Nested row for non-featured blog vuelos-->
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- Blog post-->
                         <div class="card mb-4">
-                            {% if posts.1 %}
-                            <a href="#!"><img class="card-img-top" src="{{posts.1.imagen.url}}" alt="..." /></a>
+                            {% if vuelos.1 %}
+<!--                            <a href="#!"><img class="card-img-top" src="{{vuelos.1.imagen.url}}" alt="..." /></a>-->
                             <div class="card-body">
-                                <div class="small text-muted">{{posts.1.publicado_el}}</div>
-                                <h2 class="card-title">{{posts.1.titulo}}</h2>
-                                <p class="card-text">{{posts.1.sub_titulo}}</p>
-                                <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.1.id %}">Leer Mas →</a>
+                                <div class="small text-muted">Precio: {{vuelos.1.precio}} $ARS</div>
+                                    <h2 class="card-title">{{vuelos.1.destinoIda}}</h2>
+                                    <h2 class="card-title">{{vuelos.1.destinoVuelta}}</h2>
+                                    <p class="card-text">{{vuelos.1.fechaPartida}}</p>
+                                    <p class="card-text">{{vuelos.1.fechaArrivo}}</p>
+
+                                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.1.id %}">Leer Mas →</a>
                             </div>
                             {% endif %}
                         </div>
                         <!-- Blog post-->
                         <div class="card mb-4">
-                            {% if posts.2 %}
-                            <a href="#!"><img class="card-img-top" src="{{posts.2.imagen.url}}" alt="..." /></a>
+                            {% if vuelos.2 %}
+<!--                            <a href="#!"><img class="card-img-top" src="{{vuelos.2.imagen.url}}" alt="..." /></a>-->
                             <div class="card-body">
-                                <div class="small text-muted">{{posts.2.publicado_el}}</div>
-                                <h2 class="card-title">{{posts.2.titulo}}</h2>
-                                <p class="card-text">{{posts.2.sub_titulo}}</p>
-                                <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.2.id %}">Leer Mas →</a>
+                                <div class="small text-muted">Precio: {{vuelos.2.precio}} $ARS</div>
+                                    <h2 class="card-title">{{vuelos.2.destinoIda}}</h2>
+                                    <h2 class="card-title">{{vuelos.2.destinoVuelta}}</h2>
+                                    <p class="card-text">{{vuelos.2.fechaPartida}}</p>
+                                    <p class="card-text">{{vuelos.2.fechaArrivo}}</p>
+
+                                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.2.id %}">Leer Mas →</a>
                             </div>
                             {% endif %}
                         </div>
@@ -49,43 +66,49 @@
                     <div class="col-lg-6">
                         <!-- Blog post-->
                         <div class="card mb-4">
-                            {% if posts.3 %}
-                            <a href="#!"><img class="card-img-top" src="{{posts.3.imagen.url}}" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">{{posts.3.publicado_el}}</div>
-                                <h2 class="card-title">{{posts.3.titulo}}</h2>
-                                <p class="card-text">{{posts.3.sub_titulo}}</p>
-                                <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.3.id %}">Leer Mas →</a>
+                            {% if vuelos.3 %}
+<!--                            <a href="#!"><img class="card-img-top" src="{{vuelos.3.imagen.url}}" alt="..." /></a>-->
+                            <div class="small text-muted">Precio: {{vuelos.3.precio}} $ARS</div>
+                                    <h2 class="card-title">{{vuelos.3.destinoIda}}</h2>
+                                    <h2 class="card-title">{{vuelos.3.destinoVuelta}}</h2>
+                                    <p class="card-text">{{vuelos.3.fechaPartida}}</p>
+                                    <p class="card-text">{{vuelos.3.fechaArrivo}}</p>
+
+                                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.3.id %}">Leer Mas →</a>
                             </div>
                             {% endif %}
                         </div>
                         <!-- Blog post-->
                         <div class="card mb-4">
-                            {% if posts.4 %}
-                            <a href="#!"><img class="card-img-top" src="{{posts.4.imagen.url}}" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">{{posts.4.publicado_el}}</div>
-                                <h2 class="card-title">{{posts.4.titulo}}</h2>
-                                <p class="card-text">{{posts.4.sub_titulo}}</p>
-                                <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.4.id %}">Leer Mas →</a>
+                            {% if vuelos.4 %}
+<!--                            <a href="#!"><img class="card-img-top" src="{{vuelos.4.imagen.url}}" alt="..." /></a>-->
+                            <div class="small text-muted">Precio: {{vuelos.4.precio}} $ARS</div>
+                                    <h2 class="card-title">Ida: {{vuelos.4.destinoIda}}</h2>
+                                    <h2 class="card-title">Vuelta: {{vuelos.4.destinoVuelta}}</h2>
+                                    <p class="card-text">Fecha de partida: {{vuelos.4.fechaPartida}}</p>
+                                    <p class="card-text">Fecha de Arrivo: {{vuelos.4.fechaArrivo}}</p>
+
+                                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.4.id %}">Leer Mas →</a>
                             </div>
                             {% endif %}
                         </div>
                         <div class="card mb-4">
-                            {% if posts.5 %}
-                            <a href="#!"><img class="card-img-top" src="{{posts.5.imagen.url}}" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">{{posts.5.publicado_el}}</div>
-                                <h2 class="card-title">{{posts.5.titulo}}</h2>
-                                <p class="card-text">{{posts.5.sub_titulo}}</p>
-                                <a class="btn btn-primary" href="{% url 'ejemplo-dos-detalle' posts.5.id %}">Leer Mas →</a>
+                            {% if vuelos.5 %}
+<!--                            <a href="#!"><img class="card-img-top" src="{{vuelos.5.imagen.url}}" alt="..." /></a>-->
+                            <div class="small text-muted">Precio: {{vuelos.5.precio}} $ARS</div>
+                                    <h2 class="card-title">{{vuelos.5.destinoIda}}</h2>
+                                    <h2 class="card-title">{{vuelos.5.destinoVuelta}}</h2>
+                                    <p class="card-text">{{vuelos.5.fechaPartida}}</p>
+                                    <p class="card-text">{{vuelos.5.fechaArrivo}}</p>
+
+                                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.5.id %}">Leer Mas →</a>
                             </div>
                             {% endif %}
                         </div>
                     </div>
                 </div>
             {% else %}
-                <h1>No hay posts</h1>
+                <h1>No hay vuelos</h1>
             {% endif %}
             </div>
         <!-- Side widgets-->
