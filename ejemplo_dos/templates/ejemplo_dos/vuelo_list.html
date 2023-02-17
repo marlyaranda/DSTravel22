@@ -1,0 +1,46 @@
+{% extends 'ejemplo_dos/base.html' %}
+
+{% block contenido %}
+    <div>
+        <a class="fcc-btn" href="{% url 'ejemplo-dos-index' %}"> << Volver al Inicio </a>
+    </div>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'vuelocrear' %}">Crear Vuelo</a>
+    {% if user.avatar.imagen %}
+        <a href="{% url 'ejemplo-dos-avatars-actualizar' user.avatar.id %}">Actualizar Avatar</a>
+    {% endif %}
+    <a href="{% url 'ejemplo-dos-users-actualizar' user.id %}">Actualizar Perfil</a>
+    <a href="{% url 'ejemplo-dos-mensajes-listar' %}">Mensajes</a>
+{% endif %}
+<ul>
+{% for vuelo in object_list %}
+    {% if vuelos %}
+                <!-- Featured blog post-->
+                <div class="card mb-4">
+                    {% if vuelos.0 %}
+<!--                    <a href="#!"><img class="card-img-top" src="{{vuelos.0.imagen.url}}" alt="..." /></a>-->
+                    <div class="card-body">
+                        <div class="small text-muted">Precio: {{vuelos.vuelo.precio}} $ARS</div>
+                        <h2 class="card-title">{{vuelos.vuelo.destinoIda}}</h2>
+                        <h2 class="card-title">{{vuelos.vuelo.destinoVuelta}}</h2>
+                        <p class="card-text">{{vuelos.vuelo.fechaPartida}}</p>
+                        <p class="card-text">{{vuelos.vuelo.fechaArrivo}}</p>
+
+                        <a class="btn btn-primary" href="{% url 'vuelodetalle' vuelos.vuelo.id %}">Leer Mas →</a>
+                    </div>
+                    {% endif %}
+                </div>
+    {% endif %}
+    <li>
+        {{vuelo.destinoIda}} - {{vuelo.fechaPartida}} -->
+        {% if user.is_superuser %}
+        <a href="{% url 'vueloborrar' vuelo.id %}">Borrar Vuelo</a>
+        <a href="{% url 'vueloactualizar' vuelo.id %}">Actualizar Vuelo</a>
+        {% endif %}
+        <a href="{% url 'vuelodetalle' vuelo.id %}">Ver</a>
+        <a href="{% url 'vuelocomprar' vuelo.id %}">Comprar</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
