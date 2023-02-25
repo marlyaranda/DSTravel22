@@ -100,7 +100,15 @@ class VueloComprar(CreateView, LoginRequiredMixin):
     model = Comprar
     template_name = 'ejemplo_dos/vuelo_comprar.html'
     success_url = reverse_lazy("compralistar")
-    fields = ['fechaPartida', 'fechaArrivo', 'destinoIda', 'destinoVuelta', 'precio', 'horaArrivo', 'horaPartida']
+    # fields = ['NomPasajero', 'ApePasajero', 'DniPasajero', 'FechaNacPas', 'Email', 'Calle', 'Nro', 'Ciudad', 'Provincia', 'Pais', 'Telefono', 'TitTarjeta', 'NroTarjeta', 'DniTit', 'Vencimiento', 'CVV']
+    fields = "__all__"
+
+def compras(request):
+    compras = Comprar.objects.order_by('-NomPasajero').all()
+    return render(request, "ejemplo_dos/comprar_list.html", {"compras": compras})
 
 class CompraListar(ListView):
+    model = Comprar
+
+class CompraDetalle(DetailView):
     model = Comprar

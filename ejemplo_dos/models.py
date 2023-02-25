@@ -29,10 +29,19 @@ class Vuelo(models.Model):
    horaPartida = models.CharField(max_length=100) #hora salida
 
 class Comprar(models.Model):
-   fechaPartida =  models.DateField()
-   fechaArrivo =  models.DateField()
-   destinoIda = models.CharField(max_length=100) #origen
-   destinoVuelta = models.CharField(max_length=100) #destino
-   precio = models.FloatField()
-   horaArrivo = models.CharField(max_length=100) #hora llegada
-   horaPartida = models.CharField(max_length=100) #hora salida
+    NomPasajero = models.CharField(max_length=100)
+    ApePasajero = models.CharField(max_length=100)
+    DniPasajero = models.IntegerField()
+    FechaNacPas = models.DateField(null=True)
+    Email = models.EmailField()
+    Calle = models.CharField(max_length=100)
+    Nro = models.IntegerField()
+    Ciudad = models.CharField(max_length=100)
+    Provincia = models.CharField(max_length=100)
+    Pais = models.CharField(max_length=100)
+    Telefono = models.IntegerField()
+    TitTarjeta = models.CharField(max_length=100)
+    NroTarjeta = models.IntegerField()
+    DniTit = models.IntegerField()
+    Vencimiento = models.DateField()
+    CVV = models.IntegerField()

@@ -35,8 +35,10 @@
                             {% if user.is_superuser %}
                                 <li class="nav-item"><a class="nav-link" href="{% url 'vuelocrear' %}">Crear Vuelos</a></li>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'vuelolistar' %}">Vuelos</a></li>
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}">Compras</a></li>
                             {% else %}
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'vuelolistar' %}">Vuelos Disponibles</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}">Reservas</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-listar' %}">Admin Blog</a></li>-->
                             {% endif %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-logout' %}">Salir</a></li>

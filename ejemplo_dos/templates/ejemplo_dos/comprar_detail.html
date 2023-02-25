@@ -1,0 +1,16 @@
+{% extends 'ejemplo_dos/base.html' %}
+
+{% block contenido %}
+<h3> Detalle de la compra </h3>
+<p class="card-title">Nombre/s: {{object.NomPasajero}}</p>
+<p class="card-title">Apellido/s: {{object.ApePasajero}}</p>
+<p class="card-text">DNI Pasajero: {{object.DniPasajero}}</p>
+<p class="card-text">Email: {{object.email}}</p>
+<p class="card-text">Telefono: {{object.Telefono}}</p>
+<h1 class="small text-muted">Precio: {{object.precio}} $ARS</h1>
+
+ <div>
+     <a class="btn btn-primary" href="{% url 'ejemplo-dos-index' %}">Volver</a>
+ </div>
+
+{% endblock %}
