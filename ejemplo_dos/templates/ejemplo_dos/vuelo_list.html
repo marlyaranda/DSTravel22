@@ -4,15 +4,7 @@
     <div>
         <a class="fcc-btn" href="{% url 'ejemplo-dos-index' %}"> << Volver al Inicio </a>
     </div>
-
-{% if user.is_authenticated %}
-    <a href="{% url 'vuelocrear' %}">Crear Vuelo</a>
-    {% if user.avatar.imagen %}
-        <a href="{% url 'ejemplo-dos-avatars-actualizar' user.avatar.id %}">Actualizar Avatar</a>
-    {% endif %}
-    <a href="{% url 'ejemplo-dos-users-actualizar' user.id %}">Actualizar Perfil</a>
-    <a href="{% url 'ejemplo-dos-mensajes-listar' %}">Mensajes</a>
-{% endif %}
+<h3> Lista de vuelos disponibles</h3>
 <ul>
 {% for vuelo in object_list %}
     {% if vuelos %}
@@ -35,11 +27,11 @@
     <li>
         {{vuelo.destinoIda}} - {{vuelo.fechaPartida}} -->
         {% if user.is_superuser %}
-        <a href="{% url 'vueloborrar' vuelo.id %}">Borrar Vuelo</a>
-        <a href="{% url 'vueloactualizar' vuelo.id %}">Actualizar Vuelo</a>
+        <a href="{% url 'vueloborrar' vuelo.id %}">[Borrar] </a>
+        <a href="{% url 'vueloactualizar' vuelo.id %}">[Actualizar] </a>
         {% endif %}
-        <a href="{% url 'vuelodetalle' vuelo.id %}">Ver</a>
-        <a href="{% url 'vuelocomprar' vuelo.id %}">Comprar</a>
+        <a href="{% url 'vuelodetalle' vuelo.id %}">[Ver detalle] </a>
+        <a href="{% url 'vuelocomprar' vuelo.id %}">[Comprar]</a>
     </li>
 {% endfor %}
 </ul>

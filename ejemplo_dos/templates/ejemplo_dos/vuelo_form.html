@@ -1,7 +1,10 @@
 {% extends 'ejemplo_dos/base.html' %}
 {% block contenido %}
+<div>
+    <a class="fcc-btn" href="{% url 'ejemplo-dos-listar' %}"> << Volver </a>
+</div>
 <form enctype="multipart/form-data" method="POST">
-    <h2> Alta de vuelos </h2>
+    <h2> Vuelos </h2>
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Confirmar">

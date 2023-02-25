@@ -1,5 +1,9 @@
 {% extends 'ejemplo_dos/base.html' %}
 {% block contenido %}
+   <div>
+        <a class="fcc-btn" href="{% url 'ejemplo-dos-listar' %}"> << Volver </a>
+    </div>
+    <h3>Actualización de datos</h3>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.admin import User
+from datetime import datetime
 
 class Post(models.Model):
     titulo = models.CharField(max_length=100)
@@ -25,8 +26,8 @@ class Vuelo(models.Model):
    destinoIda = models.CharField(max_length=100) #origen
    destinoVuelta = models.CharField(max_length=100) #destino
    precio = models.FloatField()
-   horaArrivo = models.CharField(max_length=100) #hora llegada
-   horaPartida = models.CharField(max_length=100) #hora salida
+   horaArrivo = models.CharField(max_length=50)
+   horaPartida = models.CharField(max_length=50)
 
 class Comprar(models.Model):
     NomPasajero = models.CharField(max_length=100)

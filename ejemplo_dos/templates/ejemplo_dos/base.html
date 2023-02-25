@@ -26,27 +26,31 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-index' %}">Home</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="#!">About</a></li>-->
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-mensajes-crear' %}">Contacto</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'ejemplo-dos-index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Alojamientos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Vehiculos</a></li>
 
                         {% if user.is_authenticated %}
                             {% if user.is_superuser %}
-                                <li class="nav-item"><a class="nav-link" href="{% url 'vuelocrear' %}">Crear Vuelos</a></li>
+<!--                                <li class="nav-item"><a class="nav-link active" href="{% url 'vuelocrear' %}">Crear Vuelos</a></li>-->
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'vuelolistar' %}">Vuelos</a></li>
-                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}">Compras</a></li>
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}">Ventas</a></li>
                             {% else %}
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'vuelolistar' %}">Vuelos Disponibles</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}">Reservas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'compralistar' %}"> Mis Reservas</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-listar' %}">Admin Blog</a></li>-->
                             {% endif %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-logout' %}">Salir</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">Ofertas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">Paquetes</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'ejemplo-dos-mensajes-crear' %}">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'ejemplo-dos-listar' %}">General</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'ejemplo-dos-logout' %}">Salir</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-login' %}">Ingresar</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-signup' %}">Registrarse</a></li>
                         {% endif %}
-                        
+
+
                     </ul>
                 </div>
             </div>

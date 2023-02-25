@@ -4,15 +4,15 @@
     <div>
         <a class="fcc-btn" href="{% url 'ejemplo-dos-index' %}"> << Volver al Inicio </a>
     </div>
-
+<h3> Lista de ventas realizadas</h3>
 <ul>
     {% for compra in object_list %}
 
         <li>
             Pasajero: {{compra.NomPasajero}}, {{compra.ApePasajero}} - DNI: {{compra.DniPasajero}} -->
-            {% if user.is_superuser %}
+            <!--{% if user.is_superuser %}
             <a href="{% url 'vueloborrar' compra.id %}">Borrar Compra</a>
-            {% endif %}
+            {% endif %}-->
             <a href="{% url 'compradetalle' compra.id %}">Ver detalle</a>
         </li>
     {% endfor %}
