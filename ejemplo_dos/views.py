@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from ejemplo_dos.forms import UsuarioForm, CompraForm
 from ejemplo_dos.models import Avatar, Post, Mensaje, Vuelo, Comprar
 from django.contrib.auth.admin import User
+import requests
+from django.conf import settings
+from django.http import HttpResponse
 
 
 #def index(request):
@@ -113,3 +116,5 @@ class CompraListar(ListView):
 
 class CompraDetalle(DetailView):
     model = Comprar
+
+

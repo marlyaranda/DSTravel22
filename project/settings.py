@@ -74,7 +74,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+JASPER_URL = 'http://127.0.0.1:8000/'  # url donde esté corriendo jasper server
+JASPER_USER = 'jasperadmin'
+JASPER_PASSWORD = 'jasperadmin'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

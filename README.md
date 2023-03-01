@@ -5,7 +5,7 @@
 		• Sistema operativo: macOS Snow Leopard/superior o Windows 7/superior
 		
 		§ Instrucciones para Instalación del Proyecto:
-		1- Clonar el repositorio https://github.com/arielmagro/proyectofinal_python.git (cambiar por mi url)
+		1- Clonar el repositorio:
 		
 		2- Ejecutar los comandos:
 		python manage.py runserver
