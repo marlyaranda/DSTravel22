@@ -5,9 +5,12 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from ejemplo_dos.forms import UsuarioForm
+from ejemplo_dos.forms import UsuarioForm, CompraForm
 from ejemplo_dos.models import Avatar, Post, Mensaje, Vuelo, Comprar
 from django.contrib.auth.admin import User
+import requests
+from django.conf import settings
+from django.http import HttpResponse
 
 
 #def index(request):
@@ -36,14 +39,14 @@ class PostActualizar(LoginRequiredMixin, UpdateView):
 class UserSignUp(CreateView):
     form_class = UsuarioForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('ejemplo-dos-listar')
+    success_url = reverse_lazy('ejemplo-dos-index')
 
 #http://localhost:8000/ejemplo-dos/login/?next=/ejemplo-dos/listar/
 class UserLogin(LoginView):
-    next_page = reverse_lazy('ejemplo-dos-listar')
+    next_page = reverse_lazy('ejemplo-dos-index')
 
 class UserLogout(LogoutView):
-    next_page = reverse_lazy('ejemplo-dos-listar')
+    next_page = reverse_lazy('ejemplo-dos-index')
 
 class AvatarActualizar(UpdateView):
     model = Avatar
@@ -90,7 +93,8 @@ class VueloBorrar(LoginRequiredMixin, DeleteView):
 class VueloActualizar(LoginRequiredMixin, UpdateView):
     model = Vuelo
     success_url = reverse_lazy("vuelolistar")
-    fields = ['fechaPartida', 'fechaArrivo', 'destinoIda', 'destinoVuelta', 'precio', 'horaArrivo', 'horaPartida']
+    # fields = ['fechaPartida', 'fechaArrivo', 'destinoIda', 'destinoVuelta', 'precio', 'horaArrivo', 'horaPartida']
+    fields = "__all__"
 
 def index(request):
     vuelos = Vuelo.objects.order_by('-fechaPartida').all()
@@ -100,7 +104,17 @@ class VueloComprar(CreateView, LoginRequiredMixin):
     model = Comprar
     template_name = 'ejemplo_dos/vuelo_comprar.html'
     success_url = reverse_lazy("compralistar")
-    fields = ['fechaPartida', 'fechaArrivo', 'destinoIda', 'destinoVuelta', 'precio', 'horaArrivo', 'horaPartida']
+    # fields = ['NomPasajero', 'ApePasajero', 'DniPasajero', 'FechaNacPas', 'Email', 'Calle', 'Nro', 'Ciudad', 'Provincia', 'Pais', 'Telefono', 'TitTarjeta', 'NroTarjeta', 'DniTit', 'Vencimiento', 'CVV']
+    fields = "__all__"
+
+def compras(request):
+    compras = Comprar.objects.order_by('-NomPasajero').all()
+    return render(request, "ejemplo_dos/comprar_list.html", {"compras": compras})
 
 class CompraListar(ListView):
     model = Comprar
+
+class CompraDetalle(DetailView):
+    model = Comprar
+
+

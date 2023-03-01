@@ -1,0 +1,33 @@
+{% extends 'ejemplo_dos/base.html' %}
+
+{% block contenido %}
+<h3> Detalle de la compra </h3>
+
+<h5 class="medium text-muted">Datos del pasajero</h5>
+<ul>
+<li><p class="card-text">Nombre/s: {{object.NomPasajero}}</p></li>
+<li><p class="card-text">Apellido/s: {{object.ApePasajero}}</p></li>
+<li><p class="card-text">DNI Pasajero: {{object.DniPasajero}}</p></li>
+<li><p class="card-text">Fecha de Nac.: {{object.FechaNacPas}}</p></li>
+<li><p class="card-text">Email: {{object.Email}}</p></li>
+<li><p class="card-text">Telefono: {{object.Telefono}}</p></li>
+</ul>
+
+<h5 class="medium text-muted">Dirección de Facturación</h5>
+<a>Calle {{object.Calle}}</a>
+<a>Nro {{object.Nro}},</a>
+<a>{{object.Ciudad}},</a>
+<a>{{object.Provincia}},</a>
+<a>{{object.Pais}}.</a>
+
+<h5 class="medium text-muted">Datos del pago</h5>
+<ul>
+<li><p class="card-text">Titular de la tarjeta: {{object.TitTarjeta}}</p></li>
+<li><p class="card-text">Número de la trajeta: {{object.NroTarjeta}}</p></li>
+<li><p class="card-text">DNI del titular: {{object.DniTit}}</p></li>
+</ul>
+ <div>
+     <a class="btn btn-primary" href="{% url 'compralistar' %}">Volver</a>
+ </div>
+
+{% endblock %}

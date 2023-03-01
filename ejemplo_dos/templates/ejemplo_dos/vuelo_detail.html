@@ -1,16 +1,21 @@
 {% extends 'ejemplo_dos/base.html' %}
 
 {% block contenido %}
-<h3> Destino: {{object.destinoIda}}</h3>
-<p class="card-title">Vuelta: {{object.destinoVuelta}}</p>
-<p class="card-text">Fecha de Partida: {{object.fechaPartida}}</p>
-<p class="card-text">Fecha de Arrivo: {{object.fechaArrivo}}</p>
-<p class="card-text">Hora de Partida: {{object.horaPartida}}</p>
-<p class="card-text">Hora de Arrivo: {{object.horaArrivo}}</p>
-<h1 class="small text-muted">Precio: {{object.precio}} $ARS</h1>
-
+<div>
+    <a class="fcc-btn" href="{% url 'ejemplo-dos-index' %}"> << Volver al Inicio </a>
+</div>
+<ul>
+<h5 class="medium text-muted">Detalle del vuelo</h5>
+<li><p class="card-text">Origen: {{object.destinoIda}}</p></li>
+<li><p class="card-text">Fecha de Partida: {{object.fechaPartida}}</p></li>
+<li><p class="card-text">Hora de Partida: {{object.horaPartida}}</p></li>
+<li><p class="card-text">Vuelta: {{object.destinoVuelta}}</p></li>
+<li><p class="card-text">Fecha de Arrivo: {{object.fechaArrivo}}</p></li>
+<li><p class="card-text">Hora de Arrivo: {{object.horaArrivo}}</p></li>
+<li><h1 class="small text-muted">Precio: {{object.precio}} $ARS</h1></li>
+</ul>
  <div>
-        <a class="btn btn-primary" href="{% url 'ejemplo-dos-index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'vuelolistar' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'vuelocomprar' vuelo.id %}">Comprar</a>
     </div>
 

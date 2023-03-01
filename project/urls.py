@@ -27,7 +27,7 @@ from ejemplo_dos.views import (index, PostDetalle, PostListar,
                                PostCrear, PostBorrar, PostActualizar,
                                UserSignUp, UserLogin, UserLogout, 
                                AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, 
-                               VueloCrear, VueloDetalle, VueloListar, VueloActualizar, VueloBorrar, VueloComprar, CompraListar )
+                               VueloCrear, VueloDetalle, VueloListar, VueloActualizar, VueloBorrar, VueloComprar, CompraListar, CompraDetalle)
 from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
@@ -69,6 +69,7 @@ urlpatterns = [
     path('dstravel/vuelos/<int:pk>/actualizar/', staff_member_required(VueloActualizar.as_view()), name="vueloactualizar"),
     path('dstravel/vuelos/<int:pk>/comprar/', staff_member_required(VueloComprar.as_view()), name="vuelocomprar"),
     path('dstravel/comprar/listar/', staff_member_required(CompraListar.as_view()), name="compralistar"),
+    path('dstravel/comprar/<int:pk>/detalle/', CompraDetalle.as_view(), name="compradetalle"),
 
 
 ]
